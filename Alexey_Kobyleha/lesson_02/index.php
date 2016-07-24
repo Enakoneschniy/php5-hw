@@ -21,7 +21,7 @@ $s = sTriangle(20);
 echo "Площадь равностороннего треугольника S = " . $s;
 
 // Task №3v.1
-echo "<h3>Task №3v.1 (c*<font color='red'>3*b</font>+c/c*√2)</h3>";
+echo "<h3>Task №3v.1 (c*<font color='red'>3*b</font>+c/c*√c)</h3>";
 
 function xEquallyV1($a, $b, $c) {
 	if ($a == 10) {
@@ -43,7 +43,7 @@ $x = xEquallyV1(25, 15, 20);
 echo "X = ", $x;
 
 // Task №3v.2 - Crutches ;)
-echo "<h3>Task №3v.2 (c*<font color='red'>3b</font>+c/c*√2)</h3>";
+echo "<h3>Task №3v.2 (c*<font color='red'>3b</font>+c/c*√c)</h3>";
 
 function xEqually($a, $b, $c) {
 	if ($a == 10) {
