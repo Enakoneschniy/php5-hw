@@ -1,28 +1,27 @@
+<strong>   всякое разное с переменными </strong>
 
 <?php
-echo "Helloy World  - валар моргулис";
-$a = 3;
-$b = 4;
-$x =$a==$b;
+echo "<br>";
+echo "<hr>";//new line
 
-echo "$x<br>";
-"<br>";
-echo "$b<br>";
+$a = 2;
+echo $a,"<br>";
+$b = 3;
+echo $b,"<br>";
+$sum = $b+$a;
+echo "$sum = $b+$a","<br>";
+echo '$sum = $b+$a',"<br>";
+echo $sum;
+echo "<hr>";//new line
+echo $sum/$a,"<br>";
+echo $sum*$a,"<br>";
+echo "$sum/$b".gettype($sum),"<br>";
+$d = $sum/$b;
+echo $d,"<br>";
+echo gettype($d),"<br>";
+echo round($d,3),"<br>";
+$d = round($d,2);
+echo "$d".gettype($d),"<br>";
 
-if($a>$b||$b>5){ echo "$a>$b<br>";
-}else{echo "  by<br>";}
-if($a>$b||$b==5){ echo '$a>$b<br>';
-}else{echo "  by<br>";}
-//&& - и ||-или
 
-echo"<hr>";
-if($a>$b||$b>5):
-    echo "$a>$b<br>";
-else: echo "  b555y<br>";
-    endif;
-if (true){
-    echo "true.....";
-}
-else
-    echo "false...";
 ?>
