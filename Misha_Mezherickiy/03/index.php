@@ -9,20 +9,18 @@ $age = 22;
 echo "Ваш возраст ",$age,", значит вам ";
 
 #Задание 2
-if($age >= 18 && $age <= 59 ):
+if($age >= 18 && $age <= 59 ){
     echo " еще работать и работать";
-endif;
-
-if($age >59):
+}
+elseif($age >59)
+{
     echo " пора на пенсию";
-endif;
-
-if($age>= 1 && $age<= 17)
+}
+elseif($age>= 1 && $age<= 17)
 {
     echo " еще рано работать";
 }
-elseif($age<1)
-{
+else{
     echo " пора перестать врать";
 }
 echo "<hr>";
