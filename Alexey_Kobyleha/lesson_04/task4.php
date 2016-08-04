@@ -26,10 +26,10 @@ for ($tr = 1; $tr <= $max; $tr++) {
         } elseif ($tr == $td) {
             $arrTriangle[$tr][$td] = 1;
 
-        } elseif (!isset($arrTriangle[$tr -1][$td -1])) {
+        } elseif (!isset($arrTriangle[$tr - 1][$td - 1])) {
             $arrTriangle[$tr][$td] = 1;
 
-        }else {
+        } else {
             $arrTriangle[$tr][$td] = $arrTriangle[$tr - 1][$td - 1] + $arrTriangle[$tr - 1][$td];
 
         }

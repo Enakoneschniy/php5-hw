@@ -13,9 +13,9 @@
 <h3>Task 3</h3>
 
 <table>
-<?php
+    <?php
 
-$max = 10;
+    $max = 10;
 
     for ($tr = 0; $tr < $max; $tr++):
         echo "<tr>";
@@ -39,5 +39,5 @@ $max = 10;
         echo "</tr>";
     endfor;
 
-?>
+    ?>
 </table>
