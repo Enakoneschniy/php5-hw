@@ -1,19 +1,27 @@
 <hr>
 <h2>Таблица умножения</h2>
+<?php
+    $size = 10;
+?>
+<style>
+    td
+    {
+        width: 15px;
+    }
+
+</style>
 <table border="1" cellspacing ="0">
-    <?php for ($rows = 1; $rows <= 10; $rows++):?>
+    <?php for ($rows = 1; $rows <= $size; $rows++):?>
         <tr>
-            <?php for($cols = 1; $cols <= 10; $cols++):?>
+            <?php for($cols = 1; $cols <= $size; $cols++):?>
                 <?php if($rows == 1 || $cols == 1):?>
                         <td align="center" bgcolor ="#ffd700">
-                        <? echo "<b>"?>
-                    <?=$rows*$cols?>
+                        <b><?= $rows * $cols?>
+                <?php else:?>
+                        <td>
+                        <?= $rows * $cols?>
                 <? endif?>
-                <?php if($rows != 1 && $cols != 1):?>
-                <td>
-                    <?=$rows * $cols?>
-                <? endif?>
-                </td>
+                        </td>
             <?php endfor;?>
         </tr>
     <?php endfor?>
@@ -23,27 +31,27 @@
 
 <h2>Веселые треугольнички</h2>
 <table border="1" cellspacing ="0">
-    <?php for ($row = 1; $row <= 10; $row++):?>
+    <?php for ($row = 1; $row <= $size; $row++):?>
         <tr>
-            <?php for($cell = 1; $cell <= 10; $cell++):?>
+            <?php for($cell = 1; $cell <= $size; $cell++):?>
                 <td>
                     <?php if($row == $cell):?>
-                        <?= "1"?>
+                        <?= 1?>
                     <? endif?>
-                    <?php if($row + $cell == 11):?>
-                        <?= "2"?>
+                    <?php if($row + $cell == $size+1):?>
+                        <?= 2?>
                     <? endif?>
-                    <?php if($cell-$row >= 1 && $row + $cell <= 10):?>
-                        <?= "3"?>
+                    <?php if($cell-$row >= 1 && $row + $cell <= $size):?>
+                        <?= 3?>
                     <? endif?>
-                     <?php if($cell + $row >= 12 && $cell > $row):?>
-                        <?= "4"?>
+                     <?php if($cell + $row >= $size+ 2 && $cell > $row):?>
+                        <?= 4?>
                     <? endif?>
-                    <?php if($row >= 7 && $row-$cell > 0 && $row + $cell >= 12 ):?>
-                        <?= "5"?>
+                    <?php if($row >= $size-3 && $row-$cell > 0 && $row + $cell >= $size+2 ):?>
+                        <?= 5?>
                     <? endif?>
-                    <?php if($row - $cell >= 1 && $row + $cell <= 10):?>
-                        <?= "6"?>
+                    <?php if($row - $cell >= 1 && $row + $cell <= $size):?>
+                        <?= 6?>
                     <? endif?>
                 </td>
             <?php endfor;?>
