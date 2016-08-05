@@ -8,47 +8,54 @@
 <?php
 
 $n = 20;
-$arrNumber = array();
+$testDataArray = array();
 
 for ($i = 0; $i < $n; $i++) {
-    $arrNumber[] = rand(-10, 50);
+    $testDataArray[] = rand(-10, 50);
 }
 
-$standartSort = $arrNumber;
+$asortTestData = $testDataArray; // Array for asort() standart function
+$bubleTestData = $testDataArray; // Array for Buble algorithm manual sort
+$msortTestData = $testDataArray; // Array for manual sort. Test
 
 // Standart functions:
 
-$timeStartOne = microtime(true); // Старт замера
+asort($asortTestData);
 
-asort($standartSort); // Что меряем
+var_dump($asortTestData);
 
-$timeEndOne = microtime(true);
+// Manual sort:
+// Algorithm "Bubble Sort".
 
-$timeResult = $timeEndOne - $timeStartOne;
+$count = count($bubleTestData) - 1;
 
-echo $timeResult . ' - Первый скрипт <br>'; // Время выполнения участка кода
-
-/*Manual sort:
-Одинаково работает как с цифрами там и словами (алфавитом).*/
-
-$tempCount = count($arrNumber);
-$manualSort = array();
-
-$timeStart = microtime(true); // Старт второго замера
-
-for ($i = 0; $i <= $tempCount; $i++) {
-    foreach ($arrNumber as $key => $value) {
-        if ($value === min($arrNumber)) {
-            $manualSort[$key] = $value;     // $manualSort[$key] = $value; - Для сохранения старых индексов
-            unset($arrNumber[$key]);
+for ($i = $count; $i >= 0; $i--) {
+    for ($j = 0; $j <= ($i - 1); $j++) {
+        if ($bubleTestData[$j] > $bubleTestData[$j + 1]) {
+            $k = $bubleTestData[$j];
+            $bubleTestData[$j] = $bubleTestData[$j + 1];
+            $bubleTestData[$j + 1] = $k;
         }
     }
 }
 
-$timeEnd = microtime(true); // Конец второго замера
+var_dump($bubleTestData);
 
-$time = $timeEnd - $timeStart;
+// Manual sort:
+// Output new array $newManualSort ...
 
-echo $time . ' - Второй скрипт'; // Время выполнения второго участка кода
+$tempCount = count($msortTestData);
+$newManualSort = array();
+
+for ($i = 0; $i <= $tempCount; $i++) {
+    foreach ($msortTestData as $key => $value) {
+        if ($value === min($msortTestData)) {
+            $newManualSort[] = $value;     // $manualSort[$key] = $value; - Для сохранения старых индексов
+            unset($msortTestData[$key]);
+        }
+    }
+}
+
+var_dump($newManualSort);
 
 ?>
