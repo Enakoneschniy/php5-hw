@@ -3,14 +3,14 @@
     $a = 31;
     $b = 21;
     $c = 31;
-    $x;
+    $row;
 
     if($a < $c){
-       $x = $a + $b / $c * $a;
+       $row = $a + $b / $c * $a;
     }else if($a == 10){
-        $x = 100;
+        $row = 100;
     }else if($a > $c){
-        $x = $c * (3 * $b) + $c * sqrt($c);
+        $row = $c * (3 * $b) + $c * sqrt($c);
     }
-    echo $x;
+    echo $row;
 ?>

@@ -56,6 +56,8 @@
     echo "<hr>";
 
             /* Task tree */
+
+
     function creatBinaryArr($numKey){
         $arRes = [];
         for($i = 0; $i < $numKey; $i++){
@@ -186,6 +188,51 @@
     echo "</pre>";
     echo "<hr>";
 
-    /* Второй способ не успел*/
+
+    /* Second way */
+
+
+
+    $arDifferentNumTwo = createRandomArr(10, -10, 10);
+
+    echo "Второй способ; <br>";
+
+    function sortAscending($arr){
+
+        function replaseInArr($arr, $a, $b){
+            $temp = $arr[$a];
+            $arr[$a] = $arr[$b];
+            $arr[$b] = $temp;
+            return $arr;
+        }
+
+        for($i = 0; $i < count($arr)-1;$i++){
+            $flag = false;
+            $j = 0;
+            while($j < count($arr)-1){
+                if($arr[$j] > $arr[$j+1]){
+                    $arr = replaseInArr($arr, $j, $j+1);
+                    $flag = true;
+                }
+                ++$j;
+            }
+            if(!$flag) break;
+        }
+
+        return $arr;
+    }
+
+
+
+
+    echo "<pre>";
+    var_dump($arDifferentNumTwo);
+    echo "</pre>";
+    echo "<hr>";
+
+
+    echo "<pre>";
+    var_dump(sortAscending($arDifferentNumTwo));
+    echo "</pre>";
 
 ?>
