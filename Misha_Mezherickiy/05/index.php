@@ -22,7 +22,7 @@ function arShow(&$array )
                         <?= $array[$cols]?>
                     <? endif?>
                     </td>
-                <?php endfor;?>
+                <?php endfor ;?>
             </tr>
         <?php endfor?>
     </table>
@@ -38,7 +38,7 @@ function arShow(&$array )
         $arSum = [1];
         $n = 22;
         $j = 3;
-        $sum = 1;
+        $sum = 0;
 
         for($i = 1; $i <= $n/3; $i++)
             {
@@ -81,7 +81,7 @@ echo "Сумма массива чисел 1+4+7+10+...+".$n." равна ".$sum
 
     $arOneZero = [];
 
-        for($i = 0; $i <= $n; $i++)
+        for($i = 1; $i <= $n; $i++)
         {
             if($i % 2 == 0)
             {
@@ -183,9 +183,7 @@ function arrayInsert(&$array,$pos=0,$value,$key='')
        {
            if($arPlusNull[$i] < 0)
            {
-
              arrayInsert($arPlusNull,$i+1,0);
-
            }
        }
 
