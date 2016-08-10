@@ -1,0 +1,47 @@
+#matrix {
+    width: 300px;
+    border: dashed 1px darkgray;
+}
+
+#userData {
+    width: auto;
+    border: dashed 1px darkgray;
+}
+
+.taskOne {
+    float: left;
+    width: 350px;
+}
+.taskTwo {
+    float: left;
+}
+
+table {
+    margin: 25px;
+}
+
+table td {
+    border: solid 1px darkgray;
+    width: 25px;
+    text-align: center;
+}
+
+.inputs {
+    margin: 25px;
+}
+form label {
+    width: 100px;
+    float: left;
+    display: inline-block;
+}
+fieldset {
+    padding: 20px;
+    border: dashed 1px darkgray;
+}
+textarea {
+    width: 270px;
+    height: 66px;
+}
+.insertColor {
+    background-color: darkblue;
+}
