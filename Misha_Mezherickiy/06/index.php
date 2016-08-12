@@ -11,9 +11,9 @@
 <hr>
 <form method="post">
         <p>
-            <label for="size">Array size</label>
-            <input type="text" name="size" id = "size" value="<?=isset($_REQUEST['size']) ? $_REQUEST['size'] : '' ?>">
-            <input type="submit" name="submit" value="Create">
+                <label for="size">Array size</label>
+                <input type="text" name="size" id = "size" value="<?=isset($_REQUEST['size']) ? $_REQUEST['size'] : '' ?>">
+
             <p>
                 <input type="checkbox" name="matrixOne" id="matrixOne" >
                 <label for="matrixOne">Show first matrix</label>
@@ -25,6 +25,9 @@
             <p>
                 <input type="checkbox" name="matrixThree" id="matrixThree">
                 <label for="matrixOne">Show third matrix</label>
+            </p>
+            <p>
+                <input type="submit" name="submit" value="Create">
             </p>
         <hr>
         </p>
