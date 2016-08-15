@@ -119,14 +119,20 @@
             if($_GET['Multiplication'] == 'on'){
                 rendArr(createMultiplicationArr($size));
             }
+
+
             if($_GET['Identity'] == 'on'){
                 rendArr(createIdentityMatrix($size));
             }
+
+
             if($_GET['pascal'] == 'on'){
                 rendArr(createPascalMatrix($size));
+
             }
 
         }
     }
+
 ?>
 
