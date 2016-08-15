@@ -65,6 +65,7 @@
                 }
             }
 
+
             function check_speed_type($speed_type){
                 if ($speed_type == "m"){
                    return true;
@@ -73,9 +74,13 @@
                 }
             }
 
+
+
             function getSpeed($distance, $time){
                 return $distance / $time;
             }
+
+
 
             if(check_form($_REQUEST['get_speed'], $_REQUEST['distance'], $_REQUEST['time'], $_REQUEST['radiobutton'])){
                 if(check_speed_type($_REQUEST['radiobutton'])){
