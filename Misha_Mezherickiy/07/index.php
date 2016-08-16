@@ -94,15 +94,12 @@ echo "Скорость с которой вы приодолели это рас
 
 <?php
 
-
-
     function factorial ($n)
     {
         $F = 1;
 
         for ($i = 1; $i <= $n; $i++)
         {
-
             $F *= ($i);
         }
         return $F;
@@ -127,14 +124,14 @@ echo "Скорость с которой вы приодолели это рас
 
 
 
-    function generateArr ($arrSize)
+    function generateArr ($arrSize, $minSize = -99, $maxSize = 99)
         {
             $randomArray = [];
                for($row = 0; $row <  $arrSize; $row++)
                     {
                         for($cell = 0; $cell <  $arrSize; $cell++)
                             {
-                                $randomArray[$row][$cell] = rand(-99,99);
+                                $randomArray[$row][$cell] = rand($minSize,$maxSize);
                             }
                     }
             return $randomArray;
