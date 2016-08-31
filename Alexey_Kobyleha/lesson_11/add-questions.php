@@ -1,3 +1,6 @@
+<!--
+Home work example at http://php.real.kh.ua/lesson_11/index.php
+-->
 <?php
 include_once 'views/header.tpl.php';
 include_once 'class/Test.php';

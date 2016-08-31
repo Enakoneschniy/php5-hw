@@ -1,3 +1,6 @@
+<!--
+Home work example at http://php.real.kh.ua/lesson_11/index.php
+-->
 <?php include_once 'views/header.tpl.php'; ?>
     <div class="row">
         <div class="col-md-8"><br>
@@ -6,7 +9,7 @@
                 <p>Найти все совпадающие слова и строки в которых они присутствуют. Набор строк это содержимое файла. Реализовать редактирование файла с помощью
                 &lt;textarea&gt;&lt;/textarea&gt;</p>
 
-                <h3><a href="#">Task №2</a></h3>
+                <h3><a href="test.php">Task №2</a></h3>
                 <p>Реализовать тест с разными видами вопросов</p>
             </div>
         </div>

@@ -1,3 +1,6 @@
+<!--
+Home work example at http://php.real.kh.ua/lesson_11/index.php
+-->
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -28,9 +31,9 @@
         <nav>
             <ul class="nav nav-pills pull-right" style="padding-top: 10px">
                 <li role="presentation" class="active"><a href="index.php">Home</a></li>
-                <li role="presentation"><a href="repeats.php">Repeats counting</a></li>
-                <li role="presentation"><a href="#">Add news</a></li>
-                <li role="presentation"><a href="#">View file</a></li>
+                <li role="presentation" class="active"><a href="repeats.php">Repeats counting</a></li>
+                <li role="presentation" class="active"><a href="test.php">Test</a></li>
+                <li role="presentation" class="active"><a href="add-questions.php">Add test</a></li>
             </ul>
         </nav>
         <h3 class="text-muted">Home work 11</h3>
