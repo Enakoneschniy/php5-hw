@@ -10,9 +10,9 @@ class Test
     protected $question;
     protected $answers;
 
-    public function setId()
+    protected function setId()
     {
-        if (!empty(file_get_contents(Test::QUESTIONS_FILE))) {
+        if (0 != filesize(Test::QUESTIONS_FILE)) {
             $tempArray = json_decode(file_get_contents(Test::QUESTIONS_FILE), true);
             $id = $tempArray[count($tempArray) - 1]['id'] + 1;
         } else {
@@ -48,9 +48,9 @@ class Test
         return $arrData;
     }
 
-    public function putData($file)
+    protected function putData($file)
     {
-        if (!empty(file_get_contents($file))) {
+        if (0 != filesize($file)) {
             $tempArray = json_decode(file_get_contents($file), true);
             $newDataArr = $this->arrData();
             $mergetArr = array_merge($tempArray, $newDataArr);
@@ -71,6 +71,29 @@ class Test
     public function getQuestion($id)
     {
 
+        $questionsArr = $this->gettingData(Test::QUESTIONS_FILE);
+        $questionData = [];
+        foreach ($questionsArr as $value) {
+            foreach ($value as $key => $item) {
+                if ($key === 'id' && $item == $id) {
+                    $questionData = $value;
+                }
+            }
+        }
+        return $questionData;
+    }
+    public function getResult($id) {
+        $dataArr = $this->getQuestion($id);
+        $answers = $dataArr['answers'];
+        $result = [];
+
+        foreach ($answers as $key => $value) {
+            if ($key == $_REQUEST['variant'] && $value == true) {
+                $result['correctly'] = $key;
+            }
+        }
+
+    return $result;
     }
 }
 
@@ -96,11 +119,11 @@ class OneValueQuestion extends Test
         $answerArr = [];
         for ($i = 1; $i <= 10; $i++) {
             if (!empty($_REQUEST['incorrectAnswer-' . $i])) {
-                $answerArr[] = [false => htmlspecialchars($_REQUEST['incorrectAnswer-' . $i])];
+                $answerArr[htmlspecialchars($_REQUEST['incorrectAnswer-' . $i])] = false;
             }
         }
         if (!empty($_REQUEST['correctAnswer'])) {
-            $answerArr[] = [true => htmlspecialchars($_REQUEST['correctAnswer'])];
+            $answerArr[htmlspecialchars($_REQUEST['correctAnswer'])] = true;
         }
         return $answerArr;
     }
@@ -128,6 +151,54 @@ class OneValueQuestion extends Test
 
 class SeveralValueQuestion extends Test
 {
+    public function addQuestion()
+    {
+        if (empty($this->generateError())) {
+            $this->setId();
+            $this->setType($type = 'SeveralAnswer');
+            $this->setQuestion(htmlspecialchars($_REQUEST['question']));
+            $this->setAnswers($this->answerData());
+            $this->putData(Test::QUESTIONS_FILE);
+
+        } else {
+            $this->generateError();
+        }
+    }
+    private function answerData()
+    {
+        $answerArr = [];
+        for ($i = 1; $i <= 10; $i++) {
+            if (!empty($_REQUEST['correctAnswer-' . $i])) {
+                $answerArr[htmlspecialchars($_REQUEST['correctAnswer-' . $i])] = true;
+            }
+        }
+        for ($i = 1; $i <= 10; $i++) {
+            if (!empty($_REQUEST['incorrectAnswer-' . $i])) {
+                $answerArr[htmlspecialchars($_REQUEST['incorrectAnswer-' . $i])] = false;
+            }
+        }
+        return $answerArr;
+    }
+
+    public function generateError()
+    {
+        $errorArr = [];
+        if (isset($_REQUEST['AddCorrectField']) || isset($_REQUEST['save'])) {
+            if (empty($_REQUEST['correctAnswer-1'])) {
+                $errorArr[] = 'One WRONG answer required';
+            }
+        }
+        if (isset($_REQUEST['save'])) {
+            if (empty($_REQUEST['question'])) {
+                $errorArr[] = 'Question field empty!';
+            }
+            if (empty($_REQUEST['correctAnswer'])) {
+                $errorArr[] = 'Correct answer empty!';
+            }
+        }
+
+        return $errorArr;
+    }
 
 }
 
