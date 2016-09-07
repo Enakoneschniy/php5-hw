@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create test</title>
+    <style>
+        .no-display{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Creating a test</h1>
+    <p id="listFormat">
+        <lable><input type="radio" name="format" value="text">Text</lable>
+        <lable><input type="radio" name="format" value="radiobutton">Radio Button</lable>
+        <lable><input type="radio" name="format" value="checkbox">Check Box</lable>
+    </p>
+
+    
+    <form id="oneAnswer" class="no-display" action="add_test.php" method="get">
+        <textarea name="question" cols="30" rows="10"></textarea><br>
+
+        <input type="text" name="answer"><br>
+        <input type="submit" name="oneAnswer">
+    </form>
+
+    <form id="checkBoxAnswer" class="no-display" action="add_test.php" method="get">
+        <textarea name="question" cols="30" rows="10"></textarea><br>
+        <lable>
+            <input type="checkbox" name="answer[]" value="1"><input type="text" name="description1">
+        </lable>
+        <br>
+        <lable>
+            <input type="checkbox" name="answer[]" value="2"><input type="text" name="description2">
+        </lable>
+        <br>
+        <lable>
+            <input type="checkbox" name="answer[]" value="3"><input type="text" name="description3">
+        </lable>
+        <br>
+        <lable>
+            <input type="checkbox" name="answer[]" value="4"><input type="text" name="description4">
+        </lable>
+        <br>
+        <input type="submit" name="checkBoxAnswer">
+    </form>
+
+    <form class="no-display" id="radioButtonAnswer" action="add_test.php" method="get">
+        <textarea name="question" cols="30" rows="10"></textarea><br>
+        <p>
+            <input type="radio" name="browser" value="1"> <input type="text" name="description1"><Br>
+            <input type="radio" name="browser" value="2"> <input type="text" name="description2"><Br>
+        </p>
+        <input type="submit" name="radioButtonAnswer">
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
